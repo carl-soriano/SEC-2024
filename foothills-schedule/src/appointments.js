@@ -1,8 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const Home = (props) => {
-  const { loggedIn, email } = props
+function Appointments() {
   const navigate = useNavigate()
 
   const onButtonClick = () => {

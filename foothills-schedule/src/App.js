@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false)
-  const [email, setEmail] = useState('')
+  const [patientID, setPatientID] = useState('')
 
   return (
     <div className="App">
@@ -14,9 +14,9 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Home/>}
+            element={<Home email={patientID} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
           />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setLoggedIn={setLoggedIn} setEmail={setPatientID} />} />
         </Routes>
       </BrowserRouter>
     </div>
