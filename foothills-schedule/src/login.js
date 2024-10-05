@@ -9,7 +9,7 @@ const Login = (props) => {
 
   const onButtonClick = async () => {
     try {
-      const response = await fetch('http://localhost:4000/login', { // Changed port to 4000
+      const response = await fetch('http://localhost:4000/login', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
