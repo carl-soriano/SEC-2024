@@ -7,7 +7,7 @@ const Login = (props) => {
   const navigate = useNavigate()
 
   const onButtonClick = () => {
-    navigate('/appointments')
+    navigate('/main')
   }
 
   return (

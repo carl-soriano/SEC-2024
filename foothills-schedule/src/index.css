@@ -1,13 +1,375 @@
-body {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+p {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+header {
+  border-bottom: 1px solid rgb(220, 220, 220);
+  display: flex;
+  align-items: center;
+  height: 10vh;
+
+}
+
+h1.title {
+  display: flex;
+  width: 70%;
+  justify-content: right;
+  font-size: 1.7rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+}
+
+div.newButton {
+  display: flex;
+  width: 50%;
+  justify-content: right;
+}
+
+button.addNew {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  height: 10vh;
+  width: 12.5vw;
+}
+
+button.addNew:hover {
+  background: #005eb8;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+header {
+  border-bottom: 1px solid grey;
+}
+
+div.popUp {
+  background: rgba(255, 255, 255, .2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.modal-container {
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.8);
+  transition: opacity 500ms;
+}
+
+#no-appointments{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 50px;
+  background: 0.4; 
+  font-family: Arial, Helvetica, sans-serif;
+  color: lightgray;
+  padding-top: 250px;
+}
+
+#add-appointment{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 50px;
+  background: 0.4;
+}
+
+#close-button{
+  background-color: white;
+  border: none;
+  font-size: 50px;
+  float: right;
+}
+
+#close-button:hover{
+  cursor: pointer;
+}
+
+#main-part{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 30%;
+  left: 33%;
+  align-items: center;
+  gap: 20px;
+}
+
+#new-appointment-title{
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #686868;
+}
+
+#image-name-ext{
+  background: #ddd;
+  height: 40px;
+}
+
+img{
+  width: auto;
+  height: auto;
+  max-height: 300px;
+  max-width: 500px;
+}
+
+#specialty-input{
+  height: 60px;
+  width: 550px;
+  border-radius: 5px;
+  border-color: #A9A9A9;
+  font-size: 20px;
+}
+
+#search-times-button{
+  height: 60px;
+  width: 550px;
+  border-color: #005eb8;
+  border-radius: 5px;
+  background-color: #005eb8;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+#search-times-button:hover{
+  cursor: pointer;
+}
+
+#search-times-button:disabled{
+  cursor: no-drop;
+  background-color: #A9A9A9;
+}
+
+label:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#ahs-logo{
+  width: 190px;
+  height: 70px; 
+}
+
+div.cancel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 2.125rem;
+}
+
+button.cancel {
+  border: none;
+  font-size: 2.125rem;
+  background: none;
+}
+
+button.cancel:hover {
+  cursor: pointer;
+}
+
+h1.creation-title {
+  font-size: 2.25rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: oblique;
+  color: rgb(69, 69, 69);
+  margin: 0;
+  padding: 0;
+}
+
+img.creation-img {
+  margin: 0;
+  padding: 0;
+}
+
+div.creation-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+div.creation-elements {
+  width: 100%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+div.file {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 10%;
+  font-size: 1.5rem;
+}
+
+label.file-inp:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+div.name {
+  width: 100%;
+  height: 15%;
+}
+
+div.dates {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+input.submitting {
+  background-color: #7f7f7f !important;
+}
+
+input.notSubmitting {
+  background-color: #005eb8 !important;
+}
+
+img {
+  width: 400px;
+  max-height: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 350px);
+  grid-gap: 10px;
+  margin: 15px;
+}
+
+@media screen and (min-width: 751px) and (max-width: 1000px) {
+  .obituary-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 350px);
+    grid-gap: 20px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .obituary-wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, 350px);
+    grid-gap: 20px;
+  }
+}
+
+div.Appointments {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  margin: 20px;
+  width: 400px;
+  height: fit-content;
+  overflow: hidden;
+  transition: height 1s ease-in;
+}
+
+div.Appointments.collapse {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+div.appointment-info {
+  overflow: hidden;
+  transition: height 1s ease-in;
+}
+
+div.appointment-info.collapsed {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  flex: 1;
+}
+
+div.app-head {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.app-name {
+  font-size: 1.8rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  color: rgb(69, 69, 69)
+}
+
+.app-content{
+font-family: cursive;
+margin-left: 5px;
+margin-right: 5px;
+margin-top: 25px; 
+margin-bottom: 20px;
+
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+div.empty-obituary-container {
+  width: 100vw;
+  height: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-style: oblique;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(195, 195, 195);
+}
+
+div.modal-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+div.appointment {
+  break-inside: avoid;
+  border: solid 1px #ddd;
+  border-radius: 6px;
 }
