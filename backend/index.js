@@ -40,6 +40,37 @@ app.put("/patients/:id", (req, res) => {
     });
 });
 
+// Appointment fetching endpoint
+// Appointment fetching endpoint
+app.post('/appointments', async (req, res) => {
+  const { patientID } = req.body;
+
+  try {
+    const query = 'SELECT appointment_id, doctor_id, date, start_time, end_time FROM Appointment WHERE patient_id = $1';
+    const result = await pool.query(query, [patientID]);
+
+    if (result.rows.length > 0) {
+      res.status(200).json({
+        success: true,
+        data: result.rows,  // Return the appointment data as an array
+      });
+    } else {
+      res.status(404).json({
+        success: false,
+        message: 'No appointments found for this patient.',
+      });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({
+      success: false,
+      message: 'Server error',
+    });
+  }
+});
+
+
+
 // Listen on specified port
 app.listen(port, () => {
   console.log(`App running on port ${port}.`);

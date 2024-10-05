@@ -31,16 +31,32 @@ app.post('/login', async (req, res) => {
   const { patientID } = req.body;
 
   try {
-    const result = await pool.query('SELECT * FROM Patient WHERE patient_id = $1', [patientID]);
+    const query = 'SELECT * FROM Appointment WHERE patient_id = $1';
     
+    // Log the query and its parameters
+    console.log("Executing query:", query, "with parameters:", [patientID]);
+
+    const result = await pool.query(query, [patientID]);
+
+    // Check if rows are returned and send them in the response
     if (result.rows.length > 0) {
-      res.status(200).json({ success: true });
+      console.log("Query results:", result.rows);  // Log the query results to console
+      res.status(200).json({
+        success: true,
+        data: result.rows  // Send the returned rows as part of the response
+      });
     } else {
-      res.status(401).json({ success: false, message: 'Invalid patient ID' });
+      res.status(401).json({
+        success: false,
+        message: 'Invalid patient ID'
+      });
     }
   } catch (err) {
     console.error(err);
-    res.status(500).json({ success: false, message: 'Server error' });
+    res.status(500).json({
+      success: false,
+      message: 'Server error'
+    });
   }
 });
 

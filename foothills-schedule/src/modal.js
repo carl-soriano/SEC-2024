@@ -1,21 +1,14 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Modal = ({ show, close }) => {
   const [loading, setLoading] = useState(false);
   const [specialty, setSpecialty] = useState('');
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-
-    const formData = new FormData();
-    
-    const res = await fetch('https://rzmajmg6ox7h7fx55ygc4puggu0tcenk.lambda-url.ca-central-1.on.aws/', {
-      method: 'POST',
-      body: formData,
-    });
-
-    setLoading(false);
   
   };
 
@@ -29,7 +22,7 @@ const Modal = ({ show, close }) => {
       <button id="close-button" onClick={close}>&#10006;</button>
 
       <div id="main-part">
-        <p id="new-appointment-title">Make a New Appointment</p>
+        <p id="new-appointment-title"></p>
 
         <img src="https://images.squarespace-cdn.com/content/v1/56fd853b1d07c0659bf91865/1542236437716-FA9C835N1QF8L1ILSSAN/AHS.png"  
         alt="ahs-logo" 
@@ -43,8 +36,6 @@ const Modal = ({ show, close }) => {
         onChange={(e) => setSpecialty(e.target.value)}
         required
         />
-        <br></br>
-
         <button
         id="search-times-button"
         type="submit" 
@@ -53,10 +44,20 @@ const Modal = ({ show, close }) => {
         {loading ? "Please wait." : "Search"}
         </button>
 
+        <div id="available-times">
+            <ul>
+                <button id="time-button">9:30</button><br></br>
+                <button id="time-button">10:00</button><br></br>
+                <button id="time-button">10:30</button><br></br>
+                <button id="time-button">10:45</button><br></br>
+            </ul>
+        </div>
+
+        <button id="search-times-button">Book appointment</button>
+
       </div>
     </div>
   );
 };
 
 export default Modal;
-

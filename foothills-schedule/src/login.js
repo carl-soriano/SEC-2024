@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Login = (props) => {
+const Login = () => {
   const [patientID, setPatientID] = useState('');
   const [error, setError] = useState('');
-
   const navigate = useNavigate();
 
   const onButtonClick = async () => {
@@ -20,7 +19,7 @@ const Login = (props) => {
       const data = await response.json();
 
       if (data.success) {
-        navigate('/main');
+        navigate('/main', { state: { patientID } });
       } else {
         setError(data.message);
       }

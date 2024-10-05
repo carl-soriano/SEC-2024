@@ -10,7 +10,7 @@ const client = new Client({
 
 client.connect();
 
-client.query('SELECT * FROM patient', (err, res) => {
+client.query('SELECT * FROM appointment', (err, res) => {
     console.log(err, res);
     client.end();
 });
