@@ -25,7 +25,7 @@ const Home = (props) => {
           className={'inputButton'}
           type="button"
           onClick={onButtonClick}
-          value={loggedIn ? 'Log out' : 'Log in'}
+          value={'Start'}
         />
         {loggedIn ? <div>Your email address is {email}</div> : <div />}
       </div>
