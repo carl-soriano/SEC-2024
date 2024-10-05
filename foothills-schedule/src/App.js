@@ -21,6 +21,7 @@ function App() {
 
   return (
     <div className="App">
+      {/* using react router to redirect the user to different pages in the app */}
       <BrowserRouter>
         <Routes>
           <Route

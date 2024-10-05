@@ -1,3 +1,6 @@
+//check if database is connected 
+
+
 const {Client} = require('pg');
 
 const client = new Client({

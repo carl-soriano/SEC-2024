@@ -2,24 +2,10 @@ import { useState, useRef } from 'react';
 
 const Appointment = ({ appointment }) => {
   const [collapsed, setCollapsed] = useState(true);
-  const audioRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const handleClick = () => {
-    if(isPlaying) {
-        audioRef.current.pause();
-        setIsPlaying(false);
-        setCollapsed(true);
-    }else{
-        audioRef.current.play();
-        setIsPlaying(true);
-        setCollapsed(true);
-    }
-  };
-
 
 
   return (
+    // handle the appointment display in the main page 
     <div className="appointment" onClick={() => setCollapsed((p) => !p)}>
 
       <div className="appointment-info">

@@ -1,3 +1,5 @@
+//main page of the application where appointments of a user display 
+
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Modal from './modal';

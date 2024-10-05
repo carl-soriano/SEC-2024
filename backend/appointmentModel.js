@@ -1,3 +1,5 @@
+//appointment for backend
+
 import { Pool } from "pg";
 const pool = new Pool({
   user: "my_user",
@@ -28,7 +30,7 @@ const getAppointments = async () => {
   }
 };
 
-//create a new appointment record in the database
+//create a new appointment in the database
 const createAppointments = (body) => {
   return new Promise(function (resolve, reject) {
     const { patient_id, doctor_id, appointment_date, appointment_time } = body;

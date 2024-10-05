@@ -1,3 +1,4 @@
+//this is the login page, handles the patient id to get in their account to check current appointments
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 

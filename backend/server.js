@@ -1,5 +1,9 @@
+// the node server used for connecting the backend to the frontend
+
+
 const express = require('express');
 const cors = require('cors');
+const e = require('express');
 const { Pool } = require('pg');
 
 const app = express();
@@ -8,7 +12,7 @@ const port = 4000;
 const pool = new Pool({
   user: "my_user",
   host: "localhost",
-  database: "foothills_database", // your database from Postgres  
+  database: "foothills_database", // our database from Postgres  
   password: "root",
   port: 5432,
 });
@@ -26,24 +30,24 @@ app.use((_, res, next) => {
   next();
 });
 
-// Login endpoint
+// Login 
 app.post('/login', async (req, res) => {
   const { patientID } = req.body;
 
   try {
     const query = 'SELECT * FROM Appointment WHERE patient_id = $1';
     
-    // Log the query and its parameters
+    // Log 
     console.log("Executing query:", query, "with parameters:", [patientID]);
 
     const result = await pool.query(query, [patientID]);
 
-    // Check if rows are returned and send them in the response
+   
     if (result.rows.length > 0) {
-      console.log("Query results:", result.rows);  // Log the query results to console
+      console.log("Query results:", result.rows); 
       res.status(200).json({
         success: true,
-        data: result.rows  // Send the returned rows as part of the response
+        data: result.rows  //send the data from the database
       });
     } else {
       res.status(401).json({

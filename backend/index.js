@@ -1,3 +1,5 @@
+//all backend code goes here
+
 const express = require("express");
 const app = express();
 const port = 3001;
@@ -36,11 +38,10 @@ app.put("/patients/:id", (req, res) => {
     })
     .catch((error) => {
       console.error(error); // Log the error
-      res.status(500).send({ error: 'Failed to update patient.' }); // Structured error response
+      res.status(500).send({ error: 'Failed to update patient.' }); 
     });
 });
 
-// Appointment fetching endpoint
 // Appointment fetching endpoint
 app.post('/appointments', async (req, res) => {
   const { patientID } = req.body;
@@ -52,7 +53,7 @@ app.post('/appointments', async (req, res) => {
     if (result.rows.length > 0) {
       res.status(200).json({
         success: true,
-        data: result.rows,  // Return the appointment data as an array
+        data: result.rows, // show data from the database 
       });
     } else {
       res.status(404).json({
@@ -71,7 +72,7 @@ app.post('/appointments', async (req, res) => {
 
 
 
-// Listen on specified port
+// Listen on specified port 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`);
 });

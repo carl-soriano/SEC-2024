@@ -1,3 +1,5 @@
+//overlay to make a new appointment for a patient
+
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -44,6 +46,7 @@ const Modal = ({ show, close }) => {
         {loading ? "Please wait." : "Search"}
         </button>
 
+        {/* displays the available times for the patient */}
         <div id="available-times">
             <ul>
                 <button id="time-button">9:30</button><br></br>

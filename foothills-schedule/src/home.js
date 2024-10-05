@@ -1,17 +1,13 @@
+//welcome page, after clicking start it takes the user to the login page
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Home = (props) => {
-  const { loggedIn, email } = props
+
   const navigate = useNavigate()
 
   const onButtonClick = () => {
-    if (loggedIn) {
-      localStorage.removeItem('user')
-      props.setLoggedIn(false)
-    } else {
       navigate('/login')
-    }
   }
 
   return (
@@ -27,7 +23,6 @@ const Home = (props) => {
           onClick={onButtonClick}
           value={'Start'}
         />
-        {loggedIn ? <div>Your email address is {email}</div> : <div />}
       </div>
     </div>
   )
